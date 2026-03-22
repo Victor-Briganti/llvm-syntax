@@ -18,6 +18,9 @@
 			"include": "#labels"
 		},
 		{
+			"include": "#numerics"
+		},
+		{
 			"include": "#strings"
 		},
 		{
@@ -86,6 +89,22 @@
 				{
 					"name": "entity.name.tag.ll",
 					"match": "[-a-zA-Z$._][-a-zA-Z$._0-9]*(?=:)"
+				}
+			]
+		},
+		"numerics": {
+			"patterns": [
+				{
+					"match": "\\b0x[KLMHR]?[0-9a-fA-F]+\\b",
+					"name": "constant.numeric.hex.ll"
+				},
+				{
+					"match": "-?\\b\\d+\\.\\d*(?:[eE][+-]?\\d+)?\\b",
+					"name": "constant.numeric.float.ll"
+				},
+				{
+					"match": "-?\\b\\d+\\b",
+					"name": "constant.numeric.integer.ll"
 				}
 			]
 		},
