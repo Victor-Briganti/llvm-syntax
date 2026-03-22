@@ -10,6 +10,12 @@
 		},
 		{
 			"include": "#keywords"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#labels"
 		}
 	],
 	"repository": {
@@ -74,6 +80,34 @@
 				{
 					"name": "keyword.control.mlir",
 					"match": "\\b(?:affine_map|affine_set|dense|else|func|module|return|step|to)\\b"
+				}
+			]
+		},
+		"variables": {
+			"patterns": [
+				{
+					"name": "variable.other.global.ll",
+					"match": "@(?:\\d+|[-a-zA-Z$._][-a-zA-Z$._0-9]*)\\b"
+				},
+				{
+					"name": "variable.other.local.ll",
+					"match": "%(?:\\d+|[-a-zA-Z$._][-a-zA-Z$._0-9]*)\\b"
+				},
+				{
+					"name": "storage.type.ll",
+					"match": "(?<=!)[a-zA-Z]+(?=\\s*\\()"
+				},
+				{
+					"name": "entity.name.tag.ll",
+					"match": "!(?:\\d+|[-a-zA-Z$._][-a-zA-Z$._0-9]*)(?![a-zA-Z$._0-9])"
+				}
+			]
+		},
+		"labels": {
+			"patterns": [
+				{
+					"name": "entity.name.tag.ll",
+					"match": "[-a-zA-Z$._][-a-zA-Z$._0-9]*(?=:)"
 				}
 			]
 		}
