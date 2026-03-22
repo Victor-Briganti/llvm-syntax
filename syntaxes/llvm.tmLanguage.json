@@ -10,6 +10,9 @@
 		},
 		{
 			"include": "#constants"
+		},
+		{
+			"include": "#variables"
 		}
 	],
 	"repository": {
@@ -45,7 +48,27 @@
 			"patterns": [
 				{
 					"name": "constant.language.llvm",
-					"match": "(?<![\\w])(?:true|false|zeroinitializer|undef|null|none|poison|vscale)(?![\\w$])"
+					"match": "(?<![\\w])(?:true|false|zeroinitializer|undef|null|none|poison|vscale|DW_TAG_[a-z_]+|DW_ATE_[a-zA-Z_]+|DW_OP_[a-zA-Z0-9_]+|DW_LANG_[a-zA-Z0-9_]+|DW_VIRTUALITY_[a-z_]+|DIFlag[A-Za-z]+)(?![\\w$])"
+				}
+			]
+		},
+		"variables": {
+			"patterns": [
+				{
+					"name": "variable.other.global.llvm",
+					"match": "@(?:\\d+|[-a-zA-Z$._][-a-zA-Z$._0-9]*)\\b"
+				},
+				{
+					"name": "variable.other.local.llvm",
+					"match": "%(?:\\d+|[-a-zA-Z$._][-a-zA-Z$._0-9]*)\\b"
+				},
+				{
+					"name": "storage.type.llvm",
+					"match": "(?<=!)[a-zA-Z]+(?=\\s*\\()"
+				},
+				{
+					"name": "entity.name.tag.llvm",
+					"match": "!(?:\\d+|[-a-zA-Z$._][-a-zA-Z$._0-9]*)(?![a-zA-Z$._0-9])"
 				}
 			]
 		}
