@@ -1,0 +1,25 @@
+{
+  "name": "llvm-syntax",
+  "displayName": "LLVM Syntax",
+  "description": "LLVM Tablegen, MLIR and IR syntax highlight extension",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.110.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "llvm",
+      "aliases": ["llvm-syntax", "llvm"],
+      "extensions": [".ll",".mlir",".td"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "llvm",
+      "scopeName": "source.llvm",
+      "path": "./syntaxes/llvm.tmLanguage.json"
+    }]
+  }
+}
