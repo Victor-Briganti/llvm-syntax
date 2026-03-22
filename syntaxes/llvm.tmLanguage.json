@@ -3,27 +3,19 @@
 	"name": "llvm-syntax",
 	"patterns": [
 		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
+			"include": "#types"
 		}
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.llvm",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.llvm",
-			"begin": "\"",
-			"end": "\"",
+		"types": {
 			"patterns": [
 				{
-					"name": "constant.character.escape.llvm",
-					"match": "\\\\."
+					"name": "keyword.control.llvm",
+					"match": "\\b(void|half|bfloat|float|double|x86_fp80|fp128|ppc_fp128|label|metadata|x86_mmx|x86_amx|type|label|opaque|token|ptr)\\b"
+				},
+				{
+					"name": "keyword.control.llvm",
+					"match": "(?<![\\w$])i\\d+(?![\\w$])"
 				}
 			]
 		}
