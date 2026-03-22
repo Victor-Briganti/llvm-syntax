@@ -1,0 +1,42 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "tablegen",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#numbers"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.td",
+					"match": "\\b(?:def|let|in|code|dag|field|include|defm|foreach|defset|defvar|if|then|else|assert|dump)\\b"
+				}
+			]
+		},
+		"types": {
+			"patterns": [
+				{
+					"name": "storage.type.ll",
+					"match": "\\b(?:class|int|string|list|bit|bits|multiclass)\\b"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.ll",
+					"match": "\\b(?:\\d+\\.?\\d*|0b[01]+|0x[0-9a-fA-F]+)\\b"
+				}
+			]
+		}
+	},
+	"scopeName": "source.td"
+}

@@ -10,16 +10,41 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "ll",
-      "aliases": ["ll", "llvm-ir"],
-      "extensions": [".ll"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "ll",
-      "scopeName": "source.ll",
-      "path": "./syntaxes/ll.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "ll",
+        "aliases": [
+          "ll",
+          "llvm-ir"
+        ],
+        "extensions": [
+          ".ll"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "td",
+        "aliases": [
+          "td",
+          "tablegen"
+        ],
+        "extensions": [
+          ".td"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "ll",
+        "scopeName": "source.ll",
+        "path": "./syntaxes/ll.tmLanguage.json"
+      },
+      {
+        "language": "td",
+        "scopeName": "source.td",
+        "path": "./syntaxes/td.tmLanguage.json"
+      }
+    ]
   }
 }
