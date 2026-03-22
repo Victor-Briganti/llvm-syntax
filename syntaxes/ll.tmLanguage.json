@@ -122,7 +122,7 @@
 		"comments": {
 			"patterns": [
 				{
-					"match": "(;)(\\s*(?:PR\\d+|REQUIRES|RUN|ALLOW_RETRIES|CHECK|CHECK-EMPTY|CHECK-(?:NEXT|NOT|DAG|SAME|LABEL|COUNT-\\d+)|XFAIL))(.*)",
+					"match": "(;)(\\s*(?:PR\\d+|REQUIRES|RUN|ALLOW_RETRIES|CHECK-(?:EMPTY|NEXT|NOT|DAG|SAME|LABEL|COUNT-\\d+)|CHECK|XFAIL))(.*)",
 					"captures": {
 						"1": {
 							"name": "comment.line.semicolon.ll"
