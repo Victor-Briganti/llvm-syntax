@@ -32,6 +32,16 @@
           ".td"
         ],
         "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "mlir",
+        "aliases": [
+          "mlir"
+        ],
+        "extensions": [
+          ".mlir"
+        ],
+        "configuration": "./language-configuration.json"
       }
     ],
     "grammars": [
@@ -44,6 +54,11 @@
         "language": "td",
         "scopeName": "source.td",
         "path": "./syntaxes/td.tmLanguage.json"
+      },
+      {
+        "language": "mlir",
+        "scopeName": "source.mlir",
+        "path": "./syntaxes/mlir.tmLanguage.json"
       }
     ]
   }

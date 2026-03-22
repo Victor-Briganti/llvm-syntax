@@ -1,0 +1,82 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "MLIR",
+	"patterns": [
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#builtins"
+		},
+		{
+			"include": "#keywords"
+		}
+	],
+	"repository": {
+		"types": {
+			"patterns": [
+				{
+					"name": "storage.type.mlir",
+					"match": "\\b(?:index|f16|f32|f64|bf16)\\b"
+				},
+				{
+					"name": "storage.type.mlir",
+					"match": "\\b(?:i\\d+)\\b"
+				},
+				{
+					"name": "storage.type.mlir",
+					"match": "\\b(?:ui\\d+)\\b"
+				},
+				{
+					"name": "storage.type.mlir",
+					"match": "\\b(?:si\\d+)\\b"
+				},
+				{
+					"match": "x\\s*(f16|f32|f64|bf16i\\d+|ui\\d+|si\\d+)\\b",
+					"captures": {
+						"1": {
+							"name": "storage.type.mlir"
+						}
+					}
+				},
+				{
+					"match": "\\b(memref|tensor|vector)(?=\\s*<)",
+					"captures": {
+						"1": {
+							"name": "storage.type.mlir"
+						}
+					}
+				},
+				{
+					"match": "x\\s*(vector)",
+					"captures": {
+						"1": {
+							"name": "storage.type.mlir"
+						}
+					}
+				}
+			]
+		},
+		"builtins": {
+			"patterns": [
+				{
+					"name": "support.function.mlir",
+					"match": "\\b(?:alloc|alloca|addf|addi|and|call|call_indirect|cmpf|cmpi|constant|dealloc|divf|dma_start|dma_wait|dim|exp|getTensor|index_cast|load|log|memref_cast|memref_shape_cast|mulf|muli|negf|powf|prefetch|rsqrt|sitofp|splat|store|select|sqrt|subf|subi|subview|tanh|view)\\b"
+				},
+				{
+					"match": "(?<![%!#@])\\b([a-zA-Z_][a-zA-Z0-9_]*\\.[a-zA-Z0-9_.]+)\\b",
+					"name": "support.function.mlir"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.mlir",
+					"match": "\\b(?:affine_map|affine_set|dense|else|func|module|return|step|to)\\b"
+				}
+			]
+		}
+	},
+	"scopeName": "source.mlir"
+}
