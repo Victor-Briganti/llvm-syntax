@@ -11,15 +11,15 @@
   ],
   "contributes": {
     "languages": [{
-      "id": "llvm",
-      "aliases": ["llvm-syntax", "llvm"],
-      "extensions": [".ll",".mlir",".td"],
+      "id": "ll",
+      "aliases": ["ll", "llvm-ir"],
+      "extensions": [".ll"],
       "configuration": "./language-configuration.json"
     }],
     "grammars": [{
-      "language": "llvm",
-      "scopeName": "source.llvm",
-      "path": "./syntaxes/llvm.tmLanguage.json"
+      "language": "ll",
+      "scopeName": "source.ll",
+      "path": "./syntaxes/ll.tmLanguage.json"
     }]
   }
 }

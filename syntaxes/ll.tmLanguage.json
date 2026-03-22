@@ -1,6 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "llvm-syntax",
+	"name": "llvm-ir-syntax",
 	"patterns": [
 		{
 			"include": "#types"
@@ -28,11 +28,11 @@
 		"types": {
 			"patterns": [
 				{
-					"name": "storage.type.llvm",
+					"name": "storage.type.ll",
 					"match": "\\b(void|half|bfloat|float|double|x86_fp80|fp128|ppc_fp128|label|metadata|x86_mmx|x86_amx|type|label|opaque|token|ptr)\\b"
 				},
 				{
-					"name": "storage.type.llvm",
+					"name": "storage.type.ll",
 					"match": "(?<![\\w$])i\\d+(?![\\w$])"
 				}
 			]
@@ -40,15 +40,15 @@
 		"instructions": {
 			"patterns": [
 				{
-					"name": "keyword.control.llvm",
+					"name": "keyword.control.ll",
 					"match": "(?<![\\w])(?:acq_rel|acquire|add|addrspace|addrspacecast|alias|align|alignstack|alloca|allocsize|alwaysinline|and|appending|arcp|argmemonly|arm_aapcs_vfpcc|arm_aapcscc|arm_apcscc|ashr|asm|atomic|atomicrmw|available_externally|bitcast|blockaddress|br|builtin|byref|byval|c|call|callbr|caller|catch|catchpad|catchret|catchswitch|cc|ccc|cleanup|cleanuppad|cleanupret|cmpxchg|cold|coldcc|comdat|common|constant|convergent|datalayout|declare|default|define|deplibs|dereferenceable_or_null|dereferenceable|disjoint|distinct|dllexport|dllimport|dso_local|dso_preemptable|eq|exact|except|extern_weak|external|externally_initialized|extractelement|extractvalue|fadd|fast|fastcc|fcmp|fdiv|fence|filter|fmul|fneg|fpext|fptosi|fptoui|fptrunc|free|freeze|frem|from|fsub|gc|getelementptr|global|hhvm_ccc|hhvmcc|hidden|hot|icmp|immarg|inaccessiblemem_or_argmemonly|inaccessiblememonly|inalloca|inbounds|indirectbr|initialexec|inlinehint|inreg|insertelement|insertvalue|intel_ocl_bicc|inteldialect|internal|inttoptr|invoke|jumptable|landingpad|linkonce_odr|linkonce|load|local_unnamed_addr|localdynamic|localexec|lshr|malloc|max|min|minsize|module|monotonic|msp430_intrcc|mul|mustprogress|musttail|naked|nand|ne|nest|ninf|nnan|no_cfi|noalias|nobuiltin|nocallback|nocapture|nocf_check|noduplicate|nofree|noimplicitfloat|noinline|nomerge|nonlazybind|nonnull|noprofile|norecurse|noredzone|noreturn|nosanitize_bounds|nosanitize_coverage|nosync|noundef|nounwind|nsw|nsz|null_pointer_is_valid|nuw|oeq|oge|ogt|ole|olt|one|optdebug|optforfuzzing|optnone|optsize|or|ord|personality|phi|preallocated|private|protected|ptrauth|ptrtoint|ptx_device|ptx_kernel|readnone|readonly|release|resume|ret|returned|returns_twice|safestack|sanitize_address|sanitize_hwaddress|sanitize_memory|sanitize_memtag|sanitize_thread|sdiv|section|select|seq_cst|sext|sge|sgt|shadowcallstack|shl|shufflevector|sideeffect|signext|sitofp|sle|slt|source_filename|speculatable|speculative_load_hardening|spir_func|spir_kernel|splat|srem|sret|ssp|sspreq|sspstrong|store|strictfp|sub|swiftcc|swifterror|swiftself|swifttailcc|switch|syncscope|tail|tailcc|target|thread_local|to|triple|trunc|udiv|ueq|uge|ugt|uitofp|ule|ult|umax|umin|une|unnamed_addr|uno|unordered|unreachable|unwind|urem|uselistorder_bb|uselistorder|uwtable|va_arg|volatile|weak_odr|weak|willreturn|win64cc|within|writeonly|x86_64_sysvcc|x86_fastcallcc|x86_stdcallcc|x86_thiscallcc|xchg|xor|zeroext|zext)(?![\\w$])"
 				},
 				{
-					"name": "keyword.other.debug.llvm",
+					"name": "keyword.other.debug.ll",
 					"match": "(?<![\\w])#dbg_(?:assign|declare|label|value)(?![\\w$])"
 				},
 				{
-					"name": "invalid.deprecated.llvm",
+					"name": "invalid.deprecated.ll",
 					"match": "(?<![\\w])(?:getresult|begin|end)(?![\\w$])"
 				}
 			]
@@ -56,7 +56,7 @@
 		"constants": {
 			"patterns": [
 				{
-					"name": "constant.language.llvm",
+					"name": "constant.language.ll",
 					"match": "(?<![\\w])(?:true|false|zeroinitializer|undef|null|none|poison|vscale|DW_TAG_[a-z_]+|DW_ATE_[a-zA-Z_]+|DW_OP_[a-zA-Z0-9_]+|DW_LANG_[a-zA-Z0-9_]+|DW_VIRTUALITY_[a-z_]+|DIFlag[A-Za-z]+)(?![\\w$])"
 				}
 			]
@@ -64,19 +64,19 @@
 		"variables": {
 			"patterns": [
 				{
-					"name": "variable.other.global.llvm",
+					"name": "variable.other.global.ll",
 					"match": "@(?:\\d+|[-a-zA-Z$._][-a-zA-Z$._0-9]*)\\b"
 				},
 				{
-					"name": "variable.other.local.llvm",
+					"name": "variable.other.local.ll",
 					"match": "%(?:\\d+|[-a-zA-Z$._][-a-zA-Z$._0-9]*)\\b"
 				},
 				{
-					"name": "storage.type.llvm",
+					"name": "storage.type.ll",
 					"match": "(?<=!)[a-zA-Z]+(?=\\s*\\()"
 				},
 				{
-					"name": "entity.name.tag.llvm",
+					"name": "entity.name.tag.ll",
 					"match": "!(?:\\d+|[-a-zA-Z$._][-a-zA-Z$._0-9]*)(?![a-zA-Z$._0-9])"
 				}
 			]
@@ -84,18 +84,18 @@
 		"labels": {
 			"patterns": [
 				{
-					"name": "entity.name.tag.llvm",
+					"name": "entity.name.tag.ll",
 					"match": "[-a-zA-Z$._][-a-zA-Z$._0-9]*(?=:)"
 				}
 			]
 		},
 		"strings": {
-			"name": "string.quoted.double.llvm",
+			"name": "string.quoted.double.ll",
 			"begin": "\"",
 			"end": "\"",
 			"patterns": [
 				{
-					"name": "constant.character.escape.llvm",
+					"name": "constant.character.escape.ll",
 					"match": "\\\\[a-fA-F0-9]{2}|\\\\[rnt\\\\\"]"
 				}
 			]
@@ -106,22 +106,22 @@
 					"match": "(;)(\\s*(?:PR\\d+|REQUIRES|RUN|ALLOW_RETRIES|CHECK|CHECK-EMPTY|CHECK-(?:NEXT|NOT|DAG|SAME|LABEL|COUNT-\\d+)|XFAIL))(.*)",
 					"captures": {
 						"1": {
-							"name": "comment.line.semicolon.llvm"
+							"name": "comment.line.semicolon.ll"
 						},
 						"2": {
-							"name": "keyword.other.directive.llvm"
+							"name": "keyword.other.directive.ll"
 						},
 						"3": {
-							"name": "comment.line.semicolon.llvm"
+							"name": "comment.line.semicolon.ll"
 						}
 					}
 				},
 				{
-					"name": "comment.llvm",
+					"name": "comment.ll",
 					"match": ";.*$"
 				}
 			]
 		}
 	},
-	"scopeName": "source.llvm"
+	"scopeName": "source.ll"
 }
