@@ -7,6 +7,9 @@
 		},
 		{
 			"include": "#instructions"
+		},
+		{
+			"include": "#constants"
 		}
 	],
 	"repository": {
@@ -35,6 +38,14 @@
 				{
 					"name": "invalid.deprecated.llvm",
 					"match": "(?<![\\w])(?:getresult|begin|end)(?![\\w$])"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.language.llvm",
+					"match": "(?<![\\w])(?:true|false|zeroinitializer|undef|null|none|poison|vscale)(?![\\w$])"
 				}
 			]
 		}
