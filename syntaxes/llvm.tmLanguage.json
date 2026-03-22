@@ -13,6 +13,9 @@
 		},
 		{
 			"include": "#variables"
+		},
+		{
+			"include": "#labels"
 		}
 	],
 	"repository": {
@@ -69,6 +72,14 @@
 				{
 					"name": "entity.name.tag.llvm",
 					"match": "!(?:\\d+|[-a-zA-Z$._][-a-zA-Z$._0-9]*)(?![a-zA-Z$._0-9])"
+				}
+			]
+		},
+		"labels": {
+			"patterns": [
+				{
+					"name": "entity.name.tag.llvm",
+					"match": "[-a-zA-Z$._][-a-zA-Z$._0-9]*(?=:)"
 				}
 			]
 		}
