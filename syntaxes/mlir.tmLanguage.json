@@ -19,6 +19,9 @@
 		},
 		{
 			"include": "#numerics"
+		},
+		{
+			"include": "#comments"
 		}
 	],
 	"repository": {
@@ -89,19 +92,19 @@
 		"variables": {
 			"patterns": [
 				{
-					"name": "variable.other.global.ll",
+					"name": "variable.other.global.mlir",
 					"match": "@(?:\\d+|[-a-zA-Z$._][-a-zA-Z$._0-9]*)\\b"
 				},
 				{
-					"name": "variable.other.local.ll",
+					"name": "variable.other.local.mlir",
 					"match": "%(?:\\d+|[-a-zA-Z$._][-a-zA-Z$._0-9]*)\\b"
 				},
 				{
-					"name": "storage.type.ll",
+					"name": "storage.type.mlir",
 					"match": "(?<=!)[a-zA-Z]+(?=\\s*\\()"
 				},
 				{
-					"name": "entity.name.tag.ll",
+					"name": "entity.name.tag.mlir",
 					"match": "!(?:\\d+|[-a-zA-Z$._][-a-zA-Z$._0-9]*)(?![a-zA-Z$._0-9])"
 				}
 			]
@@ -109,7 +112,7 @@
 		"labels": {
 			"patterns": [
 				{
-					"name": "entity.name.tag.ll",
+					"name": "entity.name.tag.mlir",
 					"match": "[-a-zA-Z$._][-a-zA-Z$._0-9]*(?=:)"
 				}
 			]
@@ -122,11 +125,33 @@
 				},
 				{
 					"match": "-?\\b\\d+\\.\\d*(?:[eE][+-]?\\d+)?\\b",
-					"name": "constant.numeric.float.ll"
+					"name": "constant.numeric.float.mlir"
 				},
 				{
 					"match": "((?<=x-?)|\\b)\\d+((?=x)|\\b)",
-					"name": "constant.numeric.integer.ll"
+					"name": "constant.numeric.integer.mlir"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"match": "(//)(\\s*(?:PR\\d+|REQUIRES|RUN|ALLOW_RETRIES|CHECK-(?:EMPTY|NEXT|NOT|DAG|SAME|LABEL|COUNT-\\d+)|CHECK|XFAIL))(.*)",
+					"captures": {
+						"1": {
+							"name": "comment.line.double-slash.mlir"
+						},
+						"2": {
+							"name": "keyword.other.directive.mlir"
+						},
+						"3": {
+							"name": "comment.line.double-slash.mlir"
+						}
+					}
+				},
+				{
+					"name": "comment.mlir",
+					"match": "//.*$"
 				}
 			]
 		}
