@@ -16,6 +16,9 @@
 		},
 		{
 			"include": "#labels"
+		},
+		{
+			"include": "#numerics"
 		}
 	],
 	"repository": {
@@ -70,7 +73,7 @@
 					"match": "\\b(?:alloc|alloca|addf|addi|and|call|call_indirect|cmpf|cmpi|constant|dealloc|divf|dma_start|dma_wait|dim|exp|getTensor|index_cast|load|log|memref_cast|memref_shape_cast|mulf|muli|negf|powf|prefetch|rsqrt|sitofp|splat|store|select|sqrt|subf|subi|subview|tanh|view)\\b"
 				},
 				{
-					"match": "(?<![%!#@])\\b([a-zA-Z_][a-zA-Z0-9_]*\\.[a-zA-Z0-9_.]+)\\b",
+					"match": "(?<![%!#@])\\b([a-zA-Z_][a-zA-Z0-9_]*(\\.[a-zA-Z0-9_.]+))+\\b",
 					"name": "support.function.mlir"
 				}
 			]
@@ -108,6 +111,22 @@
 				{
 					"name": "entity.name.tag.ll",
 					"match": "[-a-zA-Z$._][-a-zA-Z$._0-9]*(?=:)"
+				}
+			]
+		},
+		"numerics": {
+			"patterns": [
+				{
+					"match": "\\b0x[0-9a-fA-F]+\\b",
+					"name": "constant.numeric.hex.mlir"
+				},
+				{
+					"match": "-?\\b\\d+\\.\\d*(?:[eE][+-]?\\d+)?\\b",
+					"name": "constant.numeric.float.ll"
+				},
+				{
+					"match": "((?<=x-?)|\\b)\\d+((?=x)|\\b)",
+					"name": "constant.numeric.integer.ll"
 				}
 			]
 		}
