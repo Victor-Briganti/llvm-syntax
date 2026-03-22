@@ -19,6 +19,9 @@
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#comments"
 		}
 	],
 	"repository": {
@@ -94,6 +97,28 @@
 				{
 					"name": "constant.character.escape.llvm",
 					"match": "\\\\[a-fA-F0-9]{2}|\\\\[rnt\\\\\"]"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"match": "(;)(\\s*(?:PR\\d+|REQUIRES|RUN|ALLOW_RETRIES|CHECK|CHECK-EMPTY|CHECK-(?:NEXT|NOT|DAG|SAME|LABEL|COUNT-\\d+)|XFAIL))(.*)",
+					"captures": {
+						"1": {
+							"name": "comment.line.semicolon.llvm"
+						},
+						"2": {
+							"name": "keyword.other.directive.llvm"
+						},
+						"3": {
+							"name": "comment.line.semicolon.llvm"
+						}
+					}
+				},
+				{
+					"name": "comment.llvm",
+					"match": ";.*$"
 				}
 			]
 		}
