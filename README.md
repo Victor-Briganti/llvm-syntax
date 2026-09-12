@@ -17,7 +17,7 @@ Currently the extension is not on the VS Code Marketplace. The installation can 
 
 ```bash
 npm install
-vsce package
+npx vsce package --no-dependencies --allow-missing-repository
 ```
 
 This will generate a `.vsix` file. You can install it directly in VS Code by navigating to the Extensions view, clicking the three-dot menu ... at the top right, and selecting Install from VSIX.
